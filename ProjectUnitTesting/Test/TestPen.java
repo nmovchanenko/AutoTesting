@@ -27,7 +27,6 @@ public class TestPen {
 
         // Чернил достаточно только на часть текста:
         assertEquals("Написан неправильный текст!", halfWord, penWithNotEnoughInk.write(word));
-        assertFalse("В ручке есть чернила!", penWithNotEnoughInk.isWork());
     }
 
     @Test
@@ -63,8 +62,8 @@ public class TestPen {
     public void testDoSomethingElse() {
         Pen testDoSomethingElsePen = new Pen(word.length(), sizeLetter, modifiedColor);
 
-        System.out.println("EXPECTED ink Color: " + testDoSomethingElsePen.getColor());
-        System.out.print("ACTUAL ink Color: ");
+        System.out.println("EXPECTED ink Color: " + modifiedColor);
+        System.out.print("ACTUAL ink Color  : ");
         testDoSomethingElsePen.doSomethingElse();
     }
 }
