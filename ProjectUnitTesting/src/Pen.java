@@ -1,4 +1,3 @@
-import javax.swing.plaf.PanelUI;
 
 public class Pen {
     // сколько чернила в ручке

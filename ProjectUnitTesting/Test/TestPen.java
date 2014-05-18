@@ -1,4 +1,3 @@
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,27 +12,27 @@ public class TestPen {
     double sizeLetter = 2.0;
 
     @Test
-    public void testSimplePen() {
+    public void testWriteSimplePen() {
         Pen simplePen = new Pen(word.length());
 
         assertTrue("В ручке нет чернил!", simplePen.isWork());
         assertEquals("Написан неправильный текст!", word, simplePen.write(word));
-        // Чернила кончились и ничего написать уже нельзя:
-        assertEquals("Написан неправильный текст!", emptyWord, simplePen.write(word));
+        assertEquals("Закончились чернила, нельзя ничего писать!", emptyWord, simplePen.write(word));
         // проверка цвета чернил для стандартной ручки:
         assertEquals("Неправильный цвет чернил!", "BLUE", simplePen.getColor());
     }
 
     @Test
-    public void testPenWithNotEnoughInk() {
+    public void testWritePenWithNotEnoughInk() {
         Pen penWithNotEnoughInk = new Pen(halfWord.length(), sizeLetter);
 
         // Чернил достаточно только на часть текста:
         assertEquals("Написан неправильный текст!", halfWord, penWithNotEnoughInk.write(word));
+        assertFalse("В ручке есть чернила!", penWithNotEnoughInk.isWork());
     }
 
     @Test
-    public void testPenWithRedefinedColor() {
+    public void testGetColorForRedefinedColor() {
         Pen penWithRedefinedColor = new Pen(word.length(), sizeLetter, modifiedColor);
 
         // Проверка переопределенного цвета чернил:
@@ -41,29 +40,36 @@ public class TestPen {
     }
 
     @Test
-    public void testPenWithNoInk() {
+    public void testWritePenWithNoInk() {
         Pen penWithNoInk = new Pen(0);
 
         assertFalse("В ручке есть чернила!", penWithNoInk.isWork());
-        assertEquals("Написан неправильный текст!", emptyWord, penWithNoInk.write(emptyWord));
+        assertEquals("Пустой ручкой нельзя ничего написать!", emptyWord, penWithNoInk.write(word));
     }
 
     @Test
-    public void testDoSomethingElsePen() {
-        Pen testDoSomethingElsePen = new Pen(word.length());
+    public void testDoSomethingElse() {
+        Pen testDoSomethingElsePen = new Pen(word.length(), sizeLetter, modifiedColor);
 
-        System.out.println("Expected ink Color: " + testDoSomethingElsePen.getColor());
-        System.out.print("Actual ink Color: ");
+        System.out.println("EXPECTED ink Color: " + testDoSomethingElsePen.getColor());
+        System.out.print("ACTUAL ink Color: ");
         testDoSomethingElsePen.doSomethingElse();
     }
 
-    @Ignore
-    @Test (expected = Exception.class)
-    public void testImmortalPen() {
+    @Test
+    public void testWriteImmortalPen() {
         Pen immortalPen = new Pen(word.length(), 0);
 
-        do {
+        /*
+         *  Если размер букв сделать равным или меньше нуля, то чернила никогда не закончатся.
+         *  При попытке написать слово, будет логичным возвращать пустую строку: "".
+         *  В приложении этого не происходит и возвращается текст (можно написать бесконечный цикл).
+         *  Если это поправят, в этом тесте ошибки не будет.
+         */
+        assertEquals("Невозможно отобразить текст с размером букв <= 0 !", emptyWord, immortalPen.write(word));
+
+        /*do {
             immortalPen.write(word);
-        } while (immortalPen.isWork());
+        } while (immortalPen.isWork());*/
     }
 }
