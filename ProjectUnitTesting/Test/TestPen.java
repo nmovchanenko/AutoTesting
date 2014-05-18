@@ -67,9 +67,5 @@ public class TestPen {
          *  Если это поправят, в этом тесте ошибки не будет.
          */
         assertEquals("Невозможно отобразить текст с размером букв <= 0 !", emptyWord, immortalPen.write(word));
-
-        /*do {
-            immortalPen.write(word);
-        } while (immortalPen.isWork());*/
     }
 }
