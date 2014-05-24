@@ -1,3 +1,4 @@
+package main;
 
 public class Pen {
     // сколько чернила в ручке

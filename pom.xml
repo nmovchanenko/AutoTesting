@@ -34,9 +34,9 @@
                         <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/Test/Resources/AutoTest_TestNG.xml</suiteXmlFile>
+                        <suiteXmlFile>/Users/Work_Space/AutoTesting/ProjectUnitTesting/Resources/TestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <properties>
+                   <!-- <properties>
                         <property>
                             <name>usedefaultlisteners</name>
                             <value>false</value>
@@ -45,7 +45,7 @@
                             <name>listener</name>
                             <value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
                         </property>
-                    </properties>
+                    </properties> -->
                     <workingDirectory>target/</workingDirectory>
                 </configuration>
                 <executions>
