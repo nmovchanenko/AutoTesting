@@ -12,8 +12,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.0</version>
-        <scope>test</scope>
+      <version>4.8.1</version>
     </dependency>
 
     <dependency>
@@ -30,11 +29,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.10</version>
                 <configuration>
-                    <systemPropertyVariables>
+                   <!-- <systemPropertyVariables>
                         <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
-                    </systemPropertyVariables>
+                    </systemPropertyVariables> -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>/Users/Work_Space/AutoTesting/ProjectUnitTesting/Resources/TestNG.xml</suiteXmlFile>
+                        <suiteXmlFile>/Users/Work_Space/AutoTesting/ProjectUnitTesting/Test/resources/TestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
                    <!-- <properties>
                         <property>
@@ -48,14 +47,14 @@
                     </properties> -->
                     <workingDirectory>target/</workingDirectory>
                 </configuration>
-                <executions>
+               <!-- <executions>
                     <execution>
                         <phase>integration-test</phase>
                         <goals>
                             <goal>test</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions> -->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

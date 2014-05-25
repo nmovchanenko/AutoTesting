@@ -1,4 +1,4 @@
-package java;
+package JavaTest;
 
 import org.junit.Test;
 import main.Pen;
