@@ -1,7 +1,7 @@
 package JavaTest;
 
-import org.junit.Test;
 import main.Pen;
+import org.testng.annotations.Test;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
